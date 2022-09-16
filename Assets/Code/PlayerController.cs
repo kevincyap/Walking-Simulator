@@ -46,11 +46,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        yRotation += Input.GetAxis("Mouse Y") * lookSpeedX;
+        yRotation -= Input.GetAxis("Mouse Y") * lookSpeedX;
         xRotation += Input.GetAxis("Mouse X") * lookSpeedY; //inverted
-        xRotation = Mathf.Clamp(xRotation, -90, 90); //Keeps up/down head rotation realistic
-        camTrans.localEulerAngles = new Vector3(xRotation, 0, 0);
-        transform.eulerAngles = new Vector3(0, yRotation, 0);
+        yRotation = Mathf.Clamp(yRotation, -90, 90); //Keeps up/down head rotation realistic
+        camTrans.localEulerAngles = new Vector3(yRotation, 0, 0);
+        transform.eulerAngles = new Vector3(0, xRotation, 0);
 
         if (grounded && Input.GetButtonDown("Jump")) //if the player is on the ground and press Spacebar
         {
