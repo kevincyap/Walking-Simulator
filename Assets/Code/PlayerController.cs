@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public SceneController controller;
     int moveSpeed = 20; // how fast the player moves
     float lookSpeedX = 6; // left/right mouse sensitivity
     float lookSpeedY = 3; // up/down mouse sensitivity
@@ -29,6 +28,9 @@ public class PlayerController : MonoBehaviour
         lookSpeedY *= .65f; //.65 is a rough guess based on testing in firefox.
 #endif
         _rigidbody = GetComponent<Rigidbody>(); // Using GetComponent is expensive. Always do it in start and chache it when you can.
+        
+        Cursor.visible = false; 
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void FixedUpdate()
@@ -46,13 +48,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) //If the player presses the escape key
-        {
-            controller.TogglePause(); //Call the TogglePause function in the SceneController
-        }
-        if (controller.paused) //If the game is paused
-        {
-            return; //Stop running the rest of the code in this function
+        if (SceneController.paused) {
+            return;
         }
         yRotation -= Input.GetAxis("Mouse Y") * lookSpeedX;
         xRotation += Input.GetAxis("Mouse X") * lookSpeedY; //inverted
