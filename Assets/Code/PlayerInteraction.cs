@@ -11,13 +11,17 @@ public class PlayerInteraction : MonoBehaviour
 
     public Transform camTrans;
 
+    public bool useReticle = false; // option to use reticle
     private bool reticleOnTarget = false; // check if reticle on enemy or item
-
     public Transform reticleGroup;
     private Image[] reticleParts;
 
     private void Awake() {
-        reticleParts = reticleGroup.GetComponentsInChildren<Image>();
+        if (!useReticle) { // destroy reticle if not in use
+            Destroy(reticleGroup.gameObject);
+        } else {
+            reticleParts = reticleGroup.GetComponentsInChildren<Image>();
+        }
     }
 
     // Update is called once per frame
@@ -46,33 +50,35 @@ public class PlayerInteraction : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        RaycastHit hit;
+        if (useReticle) {
+            RaycastHit hit;
 
-        // check if raycast hit an enemy or a close-distanced item
-        if (Physics.Raycast(camTrans.position, camTrans.forward, out hit, raycastDist)
-            && (hit.collider.CompareTag("Enemy") || (hit.collider.CompareTag("Item") && hit.distance <= itemRaycastDist))) {
+            // check if raycast hit an enemy or a close-distanced item
+            if (Physics.Raycast(camTrans.position, camTrans.forward, out hit, raycastDist)
+                && (hit.collider.CompareTag("Enemy") || (hit.collider.CompareTag("Item") && hit.distance <= itemRaycastDist))) {
 
-                // change reticle color
-                if (hit.collider.CompareTag("Enemy")) {
-                    foreach (Image reticlePart in reticleParts) {
-                        reticlePart.color = Color.red;
+                    // change reticle color
+                    if (hit.collider.CompareTag("Enemy")) {
+                        foreach (Image reticlePart in reticleParts) {
+                            reticlePart.color = Color.red;
+                        }
+                    } else {
+                        foreach (Image reticlePart in reticleParts) {
+                            reticlePart.color = Color.cyan;
+                        }
                     }
-                } else {
-                    foreach (Image reticlePart in reticleParts) {
-                        reticlePart.color = Color.cyan;
-                    }
+
+                    reticleOnTarget = true;
+
+            }
+            // otherwise, if reticle is active, reset reticle color
+            else if (reticleOnTarget) {
+                foreach (Image reticlePart in reticleParts) {
+                    reticlePart.color = Color.white;
                 }
 
-                reticleOnTarget = true;
-
-        }
-        // otherwise, if reticle is active, reset reticle color
-        else if (reticleOnTarget) {
-            foreach (Image reticlePart in reticleParts) {
-                reticlePart.color = Color.white;
+                reticleOnTarget = false;
             }
-
-            reticleOnTarget = false;
         }
 
     }
