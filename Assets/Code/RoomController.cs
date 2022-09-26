@@ -6,6 +6,8 @@ public class RoomController : MonoBehaviour
 {
     public GameObject RoomPrefab;
     public GameObject WallPrefab;
+    public GameObject LampPrefab;
+    public int lampChance;
     public GameObject[] rooms;
     public bool wallsCreated = false;
     private LayerMask envMask;
@@ -24,6 +26,8 @@ public class RoomController : MonoBehaviour
         }
         if (numRooms > 1) {
             Destroy(gameObject);
+        } else {
+            RollLamp();
         }
     }
 
@@ -35,6 +39,14 @@ public class RoomController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void RollLamp() {
+        int roll = Random.Range(0, 100);
+        if (roll < lampChance) {
+            GameObject lamp = Instantiate(LampPrefab, transform.position + new Vector3(0, 4.3f, 0), Quaternion.Euler(-90, 0, 0));
+        }
+    }
+
     private void createWall(Vector3 pos, Quaternion rot) {
         GameObject wall = Instantiate(WallPrefab, pos, rot);
         wall.transform.parent = gameObject.transform;
