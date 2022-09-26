@@ -17,10 +17,10 @@ public class PlayerInteraction : MonoBehaviour
     private Image[] reticleParts;
 
     private void Awake() {
-        if (!useReticle) { // destroy reticle if not in use
-            Destroy(reticleGroup.gameObject);
-        } else {
-            reticleParts = reticleGroup.GetComponentsInChildren<Image>();
+        reticleParts = reticleGroup.GetComponentsInChildren<Image>();
+
+        if (!useReticle) { // set reticle to inactive if not in use
+            (reticleGroup.gameObject).SetActive(false);
         }
     }
 
