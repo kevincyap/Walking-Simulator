@@ -1,6 +1,12 @@
 using System.Collections;
 using UnityEngine;
 
+/*
+ * Enemy pathing
+ * Source: Introduction to Game Development (E24: stealth game 1/3), Sebastian Lague
+ * https://www.youtube.com/watch?v=jUdx_Nj4Xk0, 2017, April 14th
+ */
+
 public class Guard : MonoBehaviour
 {
     public Transform path;
@@ -68,7 +74,7 @@ public class Guard : MonoBehaviour
         Vector3 direction = (target - transform.position).normalized;
         float targetAngle = 90 - Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
 
-        while (Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle) > 0.05) //condition to stop this loop when the guard is looking at its target point
+        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle) > 0.05)) //condition to stop this loop when the guard is looking at its target point
         {
             float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
             transform.eulerAngles = Vector3.up * angle;
