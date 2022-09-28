@@ -74,7 +74,7 @@ public class Guard : MonoBehaviour
         Vector3 direction = (target - transform.position).normalized;
         float targetAngle = 90 - Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
 
-        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle) > 0.05)) //condition to stop this loop when the guard is looking at its target point
+        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05) //condition to stop this loop when the guard is looking at its target point
         {
             float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
             transform.eulerAngles = Vector3.up * angle;
