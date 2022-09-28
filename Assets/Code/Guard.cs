@@ -10,12 +10,22 @@ using UnityEngine;
 public class Guard : MonoBehaviour
 {
     public Transform path;
-    public float amogusSpeed;
+    public float speed;
     public float wait;
     public float turnSpeed;
 
+    public Light light;
+    public float viewDistance;
+    public Transform player;
+    public LayerMask viewMask;
+    float viewAngle;
+    Color original;
+
     void Start()
     {
+        viewAngle = light.spotAngle;
+        original = light.color;
+
         //Creates an array of all points in a path
         Vector3[] points = new Vector3[path.childCount];
         for (int i = 0; i < points.Length; i++)
@@ -25,6 +35,19 @@ public class Guard : MonoBehaviour
 
         //Calls the path traveling function
         StartCoroutine(FollowPath(points));
+    }
+
+    void Update()
+    {
+        if (CanSeePlayer())
+        {
+            light.color = Color.red;
+            Debug.Log("sus");
+        } else
+        {
+            light.color = original;
+        }
+
     }
 
     void OnDrawGizmos()
@@ -39,7 +62,10 @@ public class Guard : MonoBehaviour
             previousPos = waypoint.position;
         }
         //draw line from final to first point
-        Gizmos.DrawLine(previousPos, startPos); 
+        Gizmos.DrawLine(previousPos, startPos);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
     }
 
     IEnumerator FollowPath(Vector3[] points)
@@ -54,7 +80,7 @@ public class Guard : MonoBehaviour
 
         while(true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, amogusSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             // moves towards the target point 
             if (transform.position == target) //once the enemy reaches the target
             {
@@ -65,6 +91,26 @@ public class Guard : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    bool CanSeePlayer()
+    {
+        // function called to detect if player is seen
+        if (Vector3.Distance(transform.position,player.position) < viewDistance)
+        {
+            // If player is within view distance
+            Vector3 direction = (player.position - transform.position).normalized;
+            float angle = Vector3.Angle(transform.forward, direction);
+            if (angle < viewAngle / 2f) //if player is within spotlight angle
+            {
+                if (!Physics.Linecast(transform.position, player.position, viewMask))
+                {
+                    // if the obstacle isnt in the way between the player and the guard
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     IEnumerator Turn(Vector3 target)

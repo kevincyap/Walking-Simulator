@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-39694
+  m_Name: pb_Mesh23932
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -483,7 +483,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-41022
+  m_Name: pb_Mesh23920
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -672,6 +672,11 @@ Transform:
   m_Father: {fileID: 2008808308}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &773161364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5429468263180365014, guid: 8dff0ec31f9714d428b67befd16237de, type: 3}
+  m_PrefabInstance: {fileID: 1348325407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &775975906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2298,7 +2303,7 @@ GameObject:
   - component: {fileID: 873326195}
   - component: {fileID: 873326194}
   - component: {fileID: 873326193}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Amogus Face (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3454,7 +3459,7 @@ GameObject:
   - component: {fileID: 1073649995}
   - component: {fileID: 1073649994}
   - component: {fileID: 1073649993}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Amogus Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4704,7 +4709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1209382673}
   - component: {fileID: 1209382674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4719,7 +4724,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209382672}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5378,9 +5383,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 2008808308}
-  amogusSpeed: 10
+  speed: 10
   wait: 0.25
   turnSpeed: 90
+  light: {fileID: 1209382674}
+  viewDistance: 10
+  player: {fileID: 773161364}
+  viewMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &2008808307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,7 +5439,7 @@ GameObject:
   - component: {fileID: 2121689804}
   - component: {fileID: 2121689803}
   - component: {fileID: 2121689802}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Amogus Pack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
