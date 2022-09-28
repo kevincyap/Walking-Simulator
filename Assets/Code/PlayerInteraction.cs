@@ -12,6 +12,8 @@ public class PlayerInteraction : MonoBehaviour
     public Transform camTrans;
 
     public bool useReticle = false; // option to use reticle
+    public bool reticleEnemyChangeColor = false; // option to change reticle color on enemy hover
+    public bool reticleItemChangeColor = true; // option to change reticle color on item hover
     private bool reticleOnTarget = false; // check if reticle on enemy or item
     public Transform reticleGroup;
     private Image[] reticleParts;
@@ -57,12 +59,14 @@ public class PlayerInteraction : MonoBehaviour
             if (Physics.Raycast(camTrans.position, camTrans.forward, out hit, raycastDist)
                 && (hit.collider.CompareTag("Enemy") || (hit.collider.CompareTag("Item") && hit.distance <= itemRaycastDist))) {
 
-                    // change reticle color
-                    if (hit.collider.CompareTag("Enemy")) {
+                    // change reticle color for enemy
+                    if (hit.collider.CompareTag("Enemy") && reticleEnemyChangeColor) {
                         foreach (Image reticlePart in reticleParts) {
                             reticlePart.color = Color.red;
                         }
-                    } else {
+                    } 
+                    // change reticle color for item
+                    else if (hit.collider.CompareTag("Item") && reticleItemChangeColor) {
                         foreach (Image reticlePart in reticleParts) {
                             reticlePart.color = Color.cyan;
                         }
