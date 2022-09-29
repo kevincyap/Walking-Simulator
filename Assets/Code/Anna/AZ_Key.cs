@@ -11,6 +11,9 @@ public class AZ_Key : AZ_ItemClass
         AudioSource playerAud = AZ_PlayerInteraction.audioSrc;
         playerAud.PlayOneShot(pickup_key);
 
-        destroyItem(); // destroy rock from scene
+        // update objective
+        AZ_ObjectiveVars.key_collected = true;
+
+        destroyItem(); // destroy key from scene
     }
 }

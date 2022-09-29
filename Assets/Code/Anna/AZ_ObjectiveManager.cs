@@ -1,29 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AZ_ObjectiveManager : MonoBehaviour
 {
-    public int num_collectibles = 0;
-    private int total_collectibles = 5;
-
-    public bool checkCollectiblesComplete() {
-        return num_collectibles == total_collectibles;
-    }
-
-    public void incrementCollectibles() {
-        num_collectibles++;
-    }
+    public TextMeshProUGUI collectibleObj;
+    public TextMeshProUGUI keyObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        collectibleObj.text = "Steal the collectibles in the displays (" + AZ_ObjectiveVars.collectibles + "/" + AZ_ObjectiveVars.total_collectibles + ")";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void FixedUpdate() {
+        int collected = AZ_ObjectiveVars.collectibles;
+        int total_collectibles = AZ_ObjectiveVars.total_collectibles;
+        collectibleObj.text = "Steal the collectibles in the displays (" + collected + "/" + total_collectibles + ")";
+
+        // check collectibles all collected and update color
+        if (total_collectibles - collected <= 0) {
+            collectibleObj.color = Color.green;
+        }
+
+        // check key collected and update color
+        if (AZ_ObjectiveVars.key_collected) {
+            keyObj.color = Color.green;
+        }
+
     }
 }
