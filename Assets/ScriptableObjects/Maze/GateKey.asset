@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: gate_key
   itemName: Cube?
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 9bb712faa4c5e81488b4786041adc3ad, type: 3}

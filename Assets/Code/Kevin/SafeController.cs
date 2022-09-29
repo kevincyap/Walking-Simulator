@@ -18,6 +18,7 @@ public class SafeController : ItemController
                 child.gameObject.SetActive(false);
             } 
         }
+        RoomController.stage = 1;
     }
     public override void Use() {
         bool hasItem = InventoryManager.instance.HasItem(item);

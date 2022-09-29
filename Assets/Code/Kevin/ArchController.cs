@@ -16,7 +16,6 @@ public class ArchController : ItemController
         }
     }
     public override void Use() {
-        print("hi");
         bool hasItem = InventoryManager.instance.HasItem(item);
         if (hasItem && portalOpen == false) {
             InventoryManager.instance.RemoveItem(item);
