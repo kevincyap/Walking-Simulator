@@ -44,6 +44,9 @@ public class PlayerInteraction : MonoBehaviour
                 else if (hit.collider.CompareTag("Item") && hit.distance <= itemRaycastDist) {
                     GameObject item = hit.collider.gameObject;
                     Debug.Log("Item hit");
+                    if (item.GetComponent<ItemController>() != null) {
+                        item.GetComponent<ItemController>().Use();
+                    }
 
                     // write code for changes after item hit
                 }
