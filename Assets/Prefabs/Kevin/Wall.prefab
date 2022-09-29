@@ -60,8 +60,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d2330c3de64bd4489ae7acbe19f320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PosterPrefab: {fileID: 867387482187925727, guid: 4ebbbab69bad48e4cb7da93510b9b904, type: 3}
-  posterChance: 10
+  postersPrefabs:
+  - {fileID: 1775755960418511655, guid: e8af8cebb27038c47b65a3e0befeecae, type: 3}
+  - {fileID: 1152999475848079178, guid: 5d719385207075440a7f12ae69387dde, type: 3}
+  - {fileID: 2114029441343981008, guid: 4c22ae7d21d1ab3418dee6d4fb6aa044, type: 3}
+  - {fileID: 877146616508177769, guid: 5ea9aacf4020fd247a0bb24ba1408f5a, type: 3}
+  - {fileID: 2956042446734725936, guid: 682388a722dae004a8ee8d51fb11f59b, type: 3}
+  - {fileID: 885936191257528048, guid: 79d9ac8df3ec6cc4d91c33826db82cbd, type: 3}
+  - {fileID: 5501815285479012848, guid: 5b5ed1b2b28378a49bfcfbcb71b0bab9, type: 3}
+  - {fileID: 2028476214072620444, guid: 88fe39ccdaea35e48874e9ace3a80d9b, type: 3}
+  posterLeft: {fileID: 0}
+  posterRight: {fileID: 0}
+  posterChance: 3
 --- !u!1 &8540853989635584133
 GameObject:
   m_ObjectHideFlags: 0

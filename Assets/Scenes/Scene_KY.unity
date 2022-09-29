@@ -1277,6 +1277,10 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0.27450982
       objectReference: {fileID: 0}
+    - target: {fileID: 5429468263180365000, guid: 8dff0ec31f9714d428b67befd16237de, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a7e5e17f60828f44d89933a3fe47fa2a, type: 2}
     - target: {fileID: 5429468263180365005, guid: 8dff0ec31f9714d428b67befd16237de, type: 3}
       propertyPath: m_Name
       value: Player
