@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     int moveSpeed = 20; // how fast the player moves
     float lookSpeedX = 6; // left/right mouse sensitivity
     float lookSpeedY = 3; // up/down mouse sensitivity
-    int jumpForce = 250; // ammount of force applied to create a jump
+    int jumpForce = 500; // ammount of force applied to create a jump
 
     public Transform camTrans; // a reference to the camera transform
     float xRotation;
@@ -28,9 +28,7 @@ public class PlayerController : MonoBehaviour
         lookSpeedY *= .65f; //.65 is a rough guess based on testing in firefox.
 #endif
         _rigidbody = GetComponent<Rigidbody>(); // Using GetComponent is expensive. Always do it in start and chache it when you can.
-        
-        Cursor.visible = false; 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked; // Hides the mouse and locks it to the center of the screen.
     }
 
     void FixedUpdate()
@@ -48,9 +46,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (SceneController.instance.paused) {
-            return;
-        }
         yRotation -= Input.GetAxis("Mouse Y") * lookSpeedX;
         xRotation += Input.GetAxis("Mouse X") * lookSpeedY; //inverted
         yRotation = Mathf.Clamp(yRotation, -90, 90); //Keeps up/down head rotation realistic
