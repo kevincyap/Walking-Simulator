@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2f5796c0e8d1e84199706588f90a25f, type: 3}
-  m_Name: Box
+  m_Name: GateKey
   m_EditorClassIdentifier: 
-  ID: door_key
-  itemName: Box(?)
+  ID: gate_key
+  itemName: Cube?
   sprite: {fileID: 0}

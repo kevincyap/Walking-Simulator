@@ -12,14 +12,15 @@ public class SafeController : ItemController
     void OpenSafe() {
         foreach (Transform child in transform) {
             locked = false;
-            if (child.gameObject.name != "Base" && child.gameObject.name != "Item") {
+            if (child.gameObject.name == "Item") {
+                child.gameObject.SetActive(true);
+            } else if (child.gameObject.name != "Base") {
                 child.gameObject.SetActive(false);
-            }
+            } 
         }
     }
     public override void Use() {
         bool hasItem = InventoryManager.instance.HasItem(item);
-        print(hasItem + " " + locked);
         if (hasItem && locked) {
             InventoryManager.instance.RemoveItem(item);
             OpenSafe();
