@@ -15,3 +15,4 @@ MonoBehaviour:
   ID: gate_key
   itemName: Cube?
   sprite: {fileID: 21300000, guid: 9bb712faa4c5e81488b4786041adc3ad, type: 3}
+  audioClip: {fileID: 8300000, guid: 42bd9ae815e0faf40924f16aa92d975e, type: 3}

@@ -106,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 126ccefc7130bf54a968015c95ca4f9a, type: 2}
   locked: 1
+  unlockSound: {fileID: 8300000, guid: 004a5bd75cf437143ab51274815bf3ed, type: 3}
 --- !u!4 &2211660664157585356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 51d4c4294fcb4af4eb67fad27da28621, type: 3}

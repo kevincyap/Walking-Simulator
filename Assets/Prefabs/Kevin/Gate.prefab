@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: a816f075e88184a41b3187aebb55e51d, type: 2}
   portalOpen: 0
+  portalOpenSound: {fileID: 8300000, guid: 81ff41f22ef533b49bf572d415322874, type: 3}
 --- !u!1 &8863415383073699696 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5624543535580069947, guid: f3be6990f832efd48875f06fba478f77, type: 3}

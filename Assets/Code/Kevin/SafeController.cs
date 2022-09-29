@@ -5,11 +5,13 @@ using UnityEngine;
 public class SafeController : ItemController
 {
     public bool locked;
+    public AudioClip unlockSound;
     protected override void Start() {
         base.Start();
         locked = true;
     }
     void OpenSafe() {
+        AudioManager.instance.PlaySound(unlockSound);
         foreach (Transform child in transform) {
             locked = false;
             if (child.gameObject.name == "Item") {
