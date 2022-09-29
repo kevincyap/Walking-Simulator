@@ -6,13 +6,14 @@ using UnityEngine;
 public class SceneController : MonoBehaviour
 {
     [HideInInspector]
-    public static bool paused;
+    public bool paused;
+    public static SceneController instance;
     public GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
-        paused = false;
-        SetPause(true);
+        instance = this;
+        SetPause(false);
     }
 
     public void LoadScene(string sceneName) {
@@ -28,11 +29,14 @@ public class SceneController : MonoBehaviour
     public void HandleExit() {
         Application.Quit();
     }
-    public void SetPause(bool pauseIn) {
-        paused = pauseIn;
-        Time.timeScale = paused ? 0 : 1;
+    public void SetPause(bool pause) {
+        paused = pause;
+        Time.timeScale = pause ? 0 : 1;
         Cursor.visible = paused; 
         Cursor.lockState = paused ? CursorLockMode.None : CursorLockMode.Locked;
+    }
+    public void SetPauseMenu(bool pauseIn) {
+        SetPause(pauseIn);
         pauseMenu.SetActive(paused);
     }
     public void TogglePause() {

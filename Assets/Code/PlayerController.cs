@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (SceneController.paused) {
+        if (SceneController.instance.paused) {
             return;
         }
         yRotation -= Input.GetAxis("Mouse Y") * lookSpeedX;
