@@ -4209,6 +4209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Scene_KY
+  doorUnlock: {fileID: 8300000, guid: fc9719d3afc696d43bb1e7267b673202, type: 3}
 --- !u!65 &1138265506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4746,7 +4747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8993728973046062622, guid: c051de658d527df46a8430226def1ff3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8993728973046062622, guid: c051de658d527df46a8430226def1ff3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6263,7 +6264,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ddaed37c0bf5a1543ad1b66cf6014526, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 845c4a504c754a64e94c0c86ee66dacd, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
