@@ -13,9 +13,9 @@ public class Guard : MonoBehaviour
     public float speed = 10;
     public float wait = .3f;
     public float turnSpeed = 90f;
-    public float timeToSpot = .5f;
+    public float timeToSpot = 1f;
     public GameUI gameover;
-    float playerTimer;
+    public float playerTimer = 0.01f;
 
     public Light light;
     public float viewDistance;

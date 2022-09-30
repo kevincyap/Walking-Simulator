@@ -48,9 +48,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        /*
         if (SceneController.instance.paused) {
             return;
         }
+        */
         yRotation -= Input.GetAxis("Mouse Y") * lookSpeedX;
         xRotation += Input.GetAxis("Mouse X") * lookSpeedY; //inverted
         yRotation = Mathf.Clamp(yRotation, -90, 90); //Keeps up/down head rotation realistic
