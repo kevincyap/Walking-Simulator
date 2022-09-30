@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
     public GameObject ItemPrefab;
     public Transform ItemPanel;
+    public GameObject Objectives;
     public List<Item> items = new List<Item>();
     void Start()
     {
@@ -40,7 +41,11 @@ public class InventoryManager : MonoBehaviour
         }
     }
     public void SetInventory(bool val) {
+        if (val && SceneController.instance.pauseMenu.activeSelf) {
+            return;
+        }
         canvas.SetActive(val);
+        Objectives.SetActive(!val);
         SceneController.instance.SetPause(val);
     }
     // Update is called once per frame

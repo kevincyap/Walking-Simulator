@@ -20,6 +20,7 @@ public class RoomController : MonoBehaviour
     public bool wallsCreated = false;
     private LayerMask envMask;
     public bool ranStart = false;
+    public bool persistent = false;
 
     public static int stage = 0;
     // Start is called before the first frame update
@@ -57,7 +58,7 @@ public class RoomController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        if (Vector3.Distance(playerPos, transform.position) > 80 ) {
+        if (Vector3.Distance(playerPos, transform.position) > 80 && !persistent) {
             Destroy(gameObject);
         }
     }

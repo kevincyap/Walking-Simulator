@@ -7,23 +7,27 @@ public class SceneController : MonoBehaviour
 {
     [HideInInspector]
     public bool paused;
+    public bool pauseMenuOpen;
     public static SceneController instance;
     public GameObject pauseMenu;
+    public GameObject Objectives;
+    public GameObject inventory;
+    public GameObject reticle;
+    public bool isMainMenu = false;
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
-        SetPause(false);
+        SetPause(isMainMenu);
     }
 
     public void LoadScene(string sceneName) {
-        SetPause(sceneName == "Menu");
         SceneManager.LoadScene(sceneName);
     }
     public void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "Main") //If the player presses the escape key
+        if (Input.GetKeyDown(KeyCode.Escape) && !isMainMenu) //If the player presses the escape key
         {
-            TogglePause(); //Call the TogglePause function in the SceneController
+            SetPauseMenu(!paused); //Call the TogglePause function in the SceneController
         }
     }
     public void HandleExit() {
@@ -37,9 +41,19 @@ public class SceneController : MonoBehaviour
     }
     public void SetPauseMenu(bool pauseIn) {
         SetPause(pauseIn);
-        pauseMenu.SetActive(paused);
-    }
-    public void TogglePause() {
-        SetPause(!paused);
+        if (pauseMenu) {
+            pauseMenu.SetActive(paused);
+        }
+        if (Objectives) {
+            Objectives.SetActive(!paused);
+        }
+        if (reticle) {
+            reticle.SetActive(!paused);
+        }
+        if (paused) {
+            if (inventory) {
+                inventory.SetActive(!paused);
+            }
+        }
     }
 }
