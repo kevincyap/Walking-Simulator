@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f5796c0e8d1e84199706588f90a25f, type: 3}
+  m_Name: GateKey
+  m_EditorClassIdentifier: 
+  ID: gate_key
+  itemName: Cube?
+  sprite: {fileID: 21300000, guid: 9bb712faa4c5e81488b4786041adc3ad, type: 3}
+  audioClip: {fileID: 8300000, guid: 42bd9ae815e0faf40924f16aa92d975e, type: 3}

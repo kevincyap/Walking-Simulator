@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: maze_key
   itemName: Key
-  sprite: {fileID: 21300000, guid: 305f3dc2d9cb0e545acd74478e14145b, type: 3}
+  sprite: {fileID: 21300000, guid: 8469bfb7f50cf1244aa3171905230f02, type: 3}
+  audioClip: {fileID: 8300000, guid: ee7264f2a7f8622438beb76cb46e59c7, type: 3}

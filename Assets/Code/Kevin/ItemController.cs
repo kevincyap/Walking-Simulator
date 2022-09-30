@@ -9,6 +9,9 @@ public class ItemController : MonoBehaviour
 
     }
     public virtual void Use() {
+        if (item.audioClip != null) {
+            AudioManager.instance.PlaySound(item.audioClip);
+        }
         InventoryManager.instance.AddItem(item);
         Destroy(gameObject);
     }

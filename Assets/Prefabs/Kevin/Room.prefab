@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7184409235987142635}
   - component: {fileID: 8032367519014990333}
   - component: {fileID: 5044474005397366405}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,5 +256,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoomPrefab: {fileID: 3793932718777264469}
   WallPrefab: {fileID: 8540853988699006261, guid: 264feb7c1c5c29044a088ea3703416bb, type: 3}
+  LampPrefab: {fileID: 2539699353489238611, guid: d1a73bcdf0a2c73448b56780f4749bc9, type: 3}
+  TablePrefab: {fileID: 1920027295200494689, guid: 5e55fd512f3beb24fa51b92f574d7180, type: 3}
+  KeyPrefab: {fileID: 868001088242164474, guid: 08b9b6e524d34cb47a301d108789af32, type: 3}
+  SafePrefab: {fileID: 1583777279440414070, guid: f9f9048fce50d6e4189ac0366df20de7, type: 3}
+  GatePrefab: {fileID: 5058070083278845412, guid: c832811c9f955454c93d74e0b6a434c8, type: 3}
+  lampChance: 40
+  tableChance: 50
+  keyChance: 40
+  safeChance: 30
+  gateChance: 3
   rooms: []
   wallsCreated: 0
+  ranStart: 0
