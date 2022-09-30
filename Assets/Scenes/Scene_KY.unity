@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c114fe0b94b043f4bae524a8205153b7, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -262,10 +262,10 @@ RectTransform:
   m_Father: {fileID: 1595283343}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437, y: 143}
-  m_SizeDelta: {x: 129.1782, y: 26.0396}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 170, y: -99}
+  m_SizeDelta: {x: 129.17822, y: 26.039612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &190678023
 MonoBehaviour:
@@ -1549,10 +1549,10 @@ RectTransform:
   m_Father: {fileID: 1595283343}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437, y: 90.92}
-  m_SizeDelta: {x: 129.1782, y: 26.0396}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 170, y: -145}
+  m_SizeDelta: {x: 129.17822, y: 26.039612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1586157162
 MonoBehaviour:
@@ -1979,10 +1979,10 @@ RectTransform:
   m_Father: {fileID: 1595283343}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -437, y: 116.96}
-  m_SizeDelta: {x: 129.1782, y: 26.0396}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 170, y: -123}
+  m_SizeDelta: {x: 129.17822, y: 26.039612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2139798478
 MonoBehaviour:
@@ -2239,6 +2239,7 @@ MonoBehaviour:
   rooms: []
   wallsCreated: 0
   ranStart: 0
+  persistent: 1
 --- !u!1001 &1504046931626009807
 PrefabInstance:
   m_ObjectHideFlags: 0
