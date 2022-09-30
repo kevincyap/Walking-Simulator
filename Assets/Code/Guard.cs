@@ -10,13 +10,17 @@ using UnityEngine;
 public class Guard : MonoBehaviour
 {
     public Transform path;
-    public float speed;
-    public float wait;
-    public float turnSpeed;
+    public float speed = 10;
+    public float wait = .3f;
+    public float turnSpeed = 90f;
+    public float timeToSpot = .5f;
+    public GameUI gameover;
+    float playerTimer;
 
     public Light light;
     public float viewDistance;
     public Transform player;
+    public GameObject playerObject;
     public LayerMask viewMask;
     float viewAngle;
     Color original;
@@ -41,13 +45,21 @@ public class Guard : MonoBehaviour
     {
         if (CanSeePlayer())
         {
-            light.color = Color.red;
-            Debug.Log("sus");
+            playerTimer += Time.deltaTime;
         } else
         {
-            light.color = original;
+            playerTimer -= Time.deltaTime;
         }
+        playerTimer = Mathf.Clamp(playerTimer, 0, timeToSpot);
+        light.color = Color.Lerp(original, Color.red, playerTimer / timeToSpot);
+        //slowly transitions to a red color as player gets spotted for longer
 
+        if (playerTimer >= timeToSpot)
+        {
+            // Game Over
+            Destroy(playerObject);
+            gameover.ShowGameLoseUI();
+        }
     }
 
     void OnDrawGizmos()
