@@ -7,6 +7,7 @@ public class PortalController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
+            RoomController.stage = 0;
             SceneManager.LoadScene("Scene_WY");
         }
     }
