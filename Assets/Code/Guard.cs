@@ -20,6 +20,7 @@ public class Guard : MonoBehaviour
     public Light light;
     public float viewDistance;
     public Transform player;
+    public GameObject playerObject;
     public LayerMask viewMask;
     float viewAngle;
     Color original;
@@ -56,6 +57,7 @@ public class Guard : MonoBehaviour
         if (playerTimer >= timeToSpot)
         {
             // Game Over
+            Destroy(playerObject);
             gameover.ShowGameLoseUI();
         }
     }

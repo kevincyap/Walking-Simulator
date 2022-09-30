@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Game Over
+ * Source: Introduction to Game Development (E25: stealth game 3/3), Sebastian Lague
+ * https://www.youtube.com/watch?v=MOLg3W0HeLs, 2017, April 30th
+ */
+
 public class GameUI : MonoBehaviour
 {
     public GameObject gameLoseUI;
@@ -15,14 +21,14 @@ public class GameUI : MonoBehaviour
     {
         if (gameOver)
         {
-            if (Input.GetKeyDown("Space"))
+            if (Input.GetKeyDown("space"))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
         if (gameWin)
         {
-            if (Input.GetKeyDown("Space"))
+            if (Input.GetKeyDown("space"))
             {
                 SceneManager.LoadScene(0);
             }
