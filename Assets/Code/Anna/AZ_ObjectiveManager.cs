@@ -11,6 +11,10 @@ public class AZ_ObjectiveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // init objectives 
+        AZ_ObjectiveVars.collectibles = 0;
+        AZ_ObjectiveVars.key_collected = false;
+
         collectibleObj.text = "Steal the collectibles in the displays (" + AZ_ObjectiveVars.collectibles + "/" + AZ_ObjectiveVars.total_collectibles + ")";
     }
 
